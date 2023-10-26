@@ -7,6 +7,8 @@ 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       - svgsvg781 using now
 '''
 
 import keyboard
+import pygetwindow as gw
+import pyautogui
 import time
 import openai
 import pyttsx3  #converts text to speech
@@ -146,7 +148,7 @@ if __name__ == '__main__':  # for main execution
                 speak('Sorry, I am not able to send this email')
 
         elif 'exit' in query:
-            speak('okay sir, see you soon')
+            speak('okay sir, see you soon')     
             quit()
 
         elif 'open' in query:
@@ -157,3 +159,30 @@ if __name__ == '__main__':  # for main execution
             keyboard.write(app)
             time.sleep(0.5)
             keyboard.press_and_release('enter')
+
+        elif 'copy' in query:
+            keyboard.press_and_release('ctrl + c')
+
+        elif 'select all and copy' in query:
+            keyboard.press_and_release('ctrl + a')
+            time.sleep(0.1)
+            keyboard.press_and_release('ctrl + c')
+
+        # elif 'go to' in query:
+        #     windows = gw.getAllTitles()
+        #     windows = [item for item in windows if item]
+        #     for i in range(len(windows)):
+        #         windows[i] = windows[i].lower()
+        #     window_title = query.replace("go to ", "")
+        #     target_window = None
+        #     for window in windows:
+        #         if window_title in window:
+        #             target_window = window
+        #             break
+        #     if target_window:
+        #         # Activate (bring to foreground) the target window
+        #         pyautogui.getWindowsWithTitle(target_window).activate()
+        #     else:
+        #         print(f"Window '{window_title}' not found.")
+        #         print("open windows are : ", windows)
+
